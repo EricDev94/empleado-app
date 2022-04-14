@@ -1,0 +1,110 @@
+
+<ng-container *ngIf="this.lista == false; else templateEmpleados">
+  
+  <div class="container" id="template-Empleado">
+    <img src="./assets/empleado.png">
+    <h1 style="text-align: center; margin-top: 0.5em; height: 2em;">Ficha Empleado</h1><br>
+    <form style="margin-left: 1em;">
+      <div class="form-group">
+          <input [(ngModel)]="nombre" name="nombre" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+      </div>
+      <br>
+      <div class="form-group">
+          <input [(ngModel)]="apellido" name="apellido" type="name" class="form-control" id="exampleInputPassword1" placeholder="Apellidos">
+      </div>
+      <br>
+      <div class="form-group">
+          <input [(ngModel)]="cargo" name="cargo" type="name" class="form-control" id="exampleInputPassword1" placeholder="Cargo">
+      </div>
+      <br>
+      <div class="form-group">
+          <input [(ngModel)]="salario" name="salario" type="name" class="form-control" id="exampleInputPassword1" placeholder="Salario">
+      </div>
+      <br>
+      <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="crearEmpleado()" type="Submit" class="btn btn-primary">Añadir</button>
+      <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="crearEmpleado()" type="Submit" class="btn btn-primary">Eliminar</button>
+      <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="crearEmpleado()" type="Submit" class="btn btn-primary">Modificar</button>
+      <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="crearEmpleado()" type="Submit" class="btn btn-primary">Ordenar Alfabeticamente</button>
+      <button style="margin-top: 0.5em;" (click)="crearEmpleado()" type="Submit" class="btn btn-primary">Ordenar por Salario</button>
+    </form>
+    <br>
+  
+  </div>
+  <br>
+  <br>
+
+</ng-container>
+<ng-template #templateEmpleados>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div id="template-Empleado" class="col-sm">
+        <form style="margin-left: 1em;">
+          <img src="./assets/empleado.png">
+          <h1 style="text-align: center; margin-top: 1em;">Ficha Empleado</h1><br>
+          <div class="form-group">
+              <input [(ngModel)]="nombre" name="nombre" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+          </div>
+          <br>
+          <div class="form-group">
+              <input [(ngModel)]="apellido" name="apellido" type="name" class="form-control" id="exampleInputPassword1" placeholder="Apellidos">
+          </div>
+          <br>
+          <div class="form-group">
+              <input [(ngModel)]="cargo" name="cargo" type="name" class="form-control" id="exampleInputPassword1" placeholder="Cargo">
+          </div>
+          <br>
+          <div class="form-group">
+              <input [(ngModel)]="salario" name="salario" type="name" class="form-control" id="exampleInputPassword1" placeholder="Salario">
+          </div>
+          <br>
+          <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="crearEmpleado()" type="Submit" class="btn btn-primary">Añadir</button>
+          <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="borrarEmpleado()" type="Submit" class="btn btn-primary">Eliminar</button>
+          <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="crearEmpleado()" type="Submit" class="btn btn-primary">Modificar</button>
+          <button style="margin-right: 0.5em; margin-top: 0.5em;" (click)="ordernarEmpleadoAlf()" type="Submit" class="btn btn-primary">Ordenar Alfabeticamente</button>
+          <button style="margin-top: 0.5em;" (click)="ordenarEmpleadoSalario()" type="Submit" class="btn btn-primary">Ordenar por Salario</button>
+        </form>
+        <br>
+      </div>
+      <div id="lista-emp" class="col-sm">
+        <img src="./assets/lista.png">
+        <h1 style="text-align: center; margin-top: 0.5em; height: 2em;">Lista Empleado</h1>
+        <table class="table">
+          <thead>
+              <tr>
+                  <th *ngFor="let p of this.propiedadesTabla">{{p}}</th>
+              </tr>
+          </thead>
+          <tbody *ngFor="let e of listaEmpleados"> 
+                <tr>
+                  <td>
+                    <div class="radio">
+                        <label><input type="radio" id='regular' name="optradio"></label>
+                    </div>
+                  </td>
+                    <td scope="col" >{{e.nombre}}</td>
+                    <td scope="col" >{{e.apellido}}</td>
+                    <td scope="col" >{{e.cargo}}</td>
+                    <td scope="col" >{{e.salario}}</td>
+                    
+                </tr>
+          </tbody>
+        </table>  
+        
+      </div>
+    </div>
+    </div>
+    
+  
+  <br>
+  <br>
+  
+  
+  
+  
+  </ng-template>
+  
+
+
+  
+
